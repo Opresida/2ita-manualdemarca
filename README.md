@@ -106,7 +106,7 @@ Utilize as classes baseadas em **Tailwind CSS** presentes no projeto para garant
 ## 🔗 Repositórios Relacionados
 
 * 📘 Manual de Marca (Design System)
-* 🌐 Projeto do Site Oficial (Landing Page)
+* 🌐 Projeto do Site Oficial (Landing Page) - https://github.com/Opresida/i2TA.git
 
 ---
 
