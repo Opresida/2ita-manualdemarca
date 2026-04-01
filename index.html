@@ -5,15 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brandbook i2TA - Instituto de Inteligência e Tecnologia Aplicada da Amazônia</title>
     
-    <!-- Fonts: Space Grotesk (Tech/Display) + Inter (Legibilidade) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
     
-    <!-- Icons (Phosphor Icons) -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
-    <!-- Tailwind CSS (via CDN for single-file, with custom config) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -26,18 +23,20 @@
                     },
                     colors: {
                         i2ta: {
-                            dark: '#0A0F1C', // Preto Profundo (Base premium)
-                            white: '#F5F7FA', // Branco Tecnológico
+                            dark: '#0A0F1C', 
+                            darker: '#05080f',
+                            white: '#F5F7FA',
                             cyan: {
-                                DEFAULT: '#00E0FF', // Azul Ciano
-                                glow: '#4DFFFF' // Azul Glow
+                                DEFAULT: '#00E0FF',
+                                glow: '#4DFFFF'
                             },
                             purple: {
-                                DEFAULT: '#7B3FE4', // Roxo Neon
-                                dark: '#3B1E7A' // Roxo Escuro
+                                DEFAULT: '#7B3FE4',
+                                dark: '#3B1E7A'
                             },
                             blue: {
-                                deep: '#0D2A52' // Azul Profundo Secundário
+                                deep: '#0D2A52',
+                                tech: '#1E6FB8'
                             },
                             support: {
                                 success: '#00FF9C',
@@ -58,7 +57,6 @@
         }
     </script>
 
-    <!-- Custom CSS -->
     <style>
         :root {
             --bg-color: #0A0F1C;
@@ -217,50 +215,38 @@
             to { stroke-dashoffset: -24; }
         }
 
-        .anim-core {
-            animation: core-pulse 4s ease-in-out infinite;
-        }
+        .anim-core { animation: core-pulse 4s ease-in-out infinite; }
         .anim-sat-1 { animation: float-sat 5s ease-in-out infinite; }
         .anim-sat-2 { animation: float-sat 6s ease-in-out infinite 1s; }
         .anim-sat-3 { animation: float-sat 7s ease-in-out infinite 2s; }
         
-        .anim-line-fast {
-            stroke-dasharray: 6;
-            animation: data-flow 1.5s linear infinite;
-        }
-        .anim-line-slow {
-            stroke-dasharray: 4 8;
-            animation: data-flow 2.5s linear infinite reverse;
-        }
+        .anim-line-fast { stroke-dasharray: 6; animation: data-flow 1.5s linear infinite; }
+        .anim-line-slow { stroke-dasharray: 4 8; animation: data-flow 2.5s linear infinite reverse; }
 
         /* 3D Flip Utilities */
         .perspective-1000 { perspective: 1000px; }
         .transform-style-3d { transform-style: preserve-3d; }
-        .backface-hidden { 
-            backface-visibility: hidden; 
-            -webkit-backface-visibility: hidden; 
-        }
+        .backface-hidden { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
         .rotate-y-180 { transform: rotateY(180deg); }
     </style>
 </head>
 <body class="font-sans antialiased text-i2ta-neutral-gray selection:bg-i2ta-cyan selection:text-i2ta-dark">
 
-    <!-- Navbar -->
     <nav class="fixed w-full z-50 glass transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <div class="flex-shrink-0 cursor-pointer flex items-center">
-                    <!-- Logo Navbar -->
-                    <img src="https://i.imgur.com/2zvS5KN.png" alt="i2TA Logo" class="h-10 md:h-14 object-contain">
+                    <img src="https://raw.githubusercontent.com/Opresida/2ita-manualdemarca/refs/heads/main/logo.svg" alt="i2TA Logo" class="h-8 md:h-10 object-contain">
                 </div>
                 
-                <!-- Desktop Menu -->
                 <div class="hidden lg:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
+                    <div class="ml-10 flex items-baseline space-x-6 lg:space-x-8">
                         <a href="#sobre" class="text-sm font-display tracking-wide hover:text-i2ta-white transition-colors">O Instituto</a>
+                        <a href="#estrategia" class="text-sm font-display tracking-wide hover:text-i2ta-white transition-colors">Estratégia</a>
                         <a href="#brandbook" class="text-sm font-display tracking-wide hover:text-i2ta-white transition-colors">Diretrizes</a>
                         <a href="#materiais" class="text-sm font-display tracking-wide hover:text-i2ta-white transition-colors">Aplicações</a>
-                        <a href="#conectividade" class="text-sm font-display tracking-wide hover:text-i2ta-white transition-colors">Conectividade</a>
+                        <a href="#conectividade" class="text-sm font-display tracking-wide hover:text-i2ta-white transition-colors">Sistemas</a>
+                        <a href="#github" class="text-sm font-display tracking-wide hover:text-i2ta-white transition-colors">Repositórios</a>
                     </div>
                 </div>
                 
@@ -268,7 +254,6 @@
                     <a href="#brandbook" class="btn-primary text-sm py-2 px-5">Baixar Assets <i class="ph ph-download-simple"></i></a>
                 </div>
                 
-                <!-- Mobile menu button -->
                 <div class="flex lg:hidden">
                     <button type="button" id="mobile-menu-btn" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-white/10 focus:outline-none transition-colors">
                         <i class="ph ph-list text-2xl transition-transform duration-300"></i>
@@ -277,33 +262,29 @@
             </div>
         </div>
 
-        <!-- Mobile Menu Overlay -->
         <div id="mobile-menu" class="hidden lg:hidden bg-i2ta-dark/95 backdrop-blur-xl border-b border-white/5 absolute top-20 left-0 w-full transition-all duration-300 shadow-2xl">
             <div class="px-6 py-8 flex flex-col space-y-4 text-center">
                 <a href="#sobre" class="mobile-link text-gray-300 hover:text-i2ta-white block text-lg font-display tracking-wide border-b border-white/5 pb-3">O Instituto</a>
+                <a href="#estrategia" class="mobile-link text-gray-300 hover:text-i2ta-white block text-lg font-display tracking-wide border-b border-white/5 pb-3">Estratégia & Voz</a>
                 <a href="#brandbook" class="mobile-link text-gray-300 hover:text-i2ta-white block text-lg font-display tracking-wide border-b border-white/5 pb-3">Diretrizes da Marca</a>
                 <a href="#materiais" class="mobile-link text-gray-300 hover:text-i2ta-white block text-lg font-display tracking-wide border-b border-white/5 pb-3">Aplicações Visuais</a>
                 <a href="#conectividade" class="mobile-link text-gray-300 hover:text-i2ta-white block text-lg font-display tracking-wide border-b border-white/5 pb-3">Conectividade</a>
-                <a href="#impacto" class="mobile-link text-gray-300 hover:text-i2ta-white block text-lg font-display tracking-wide pb-2">Roadmap</a>
+                <a href="#impacto" class="mobile-link text-gray-300 hover:text-i2ta-white block text-lg font-display tracking-wide border-b border-white/5 pb-3">Roadmap</a>
+                <a href="#github" class="mobile-link text-gray-300 hover:text-i2ta-white block text-lg font-display tracking-wide pb-2">Acesso GitHub</a>
                 <a href="#brandbook" class="mobile-link btn-primary w-full mt-6 py-3">Baixar Assets <i class="ph ph-download-simple"></i></a>
             </div>
         </div>
     </nav>
 
-    <!-- 1. HERO (IMPACTO BIG TECH) -->
     <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-10">
-        <!-- Canvas for Neural Network connection effect -->
         <canvas id="hero-canvas" class="absolute inset-0 z-0"></canvas>
         <div class="bg-grid"></div>
         
-        <!-- Tech Blobs (Purple & Cyan) -->
         <div class="glow-blob w-72 h-72 md:w-96 md:h-96 bg-i2ta-purple top-1/4 left-1/4 mix-blend-screen opacity-25"></div>
         <div class="glow-blob w-72 h-72 md:w-[35rem] md:h-[35rem] bg-i2ta-cyan bottom-0 right-1/4 mix-blend-screen opacity-20"></div>
 
         <div class="relative z-10 text-center max-w-5xl px-6 mx-auto flex flex-col items-center justify-center">
-            
-            <!-- Logo Aplicada no Hero -->
-            <img src="https://i.imgur.com/2zvS5KN.png" alt="i2TA Logo" class="h-28 md:h-40 lg:h-56 mx-auto mb-10 gsap-hero drop-shadow-[0_0_30px_rgba(123,63,228,0.5)] object-contain">
+            <img src="https://raw.githubusercontent.com/Opresida/2ita-manualdemarca/refs/heads/main/logo.svg" alt="i2TA Logo" class="h-28 md:h-40 lg:h-56 mx-auto mb-10 gsap-hero drop-shadow-[0_0_30px_rgba(123,63,228,0.5)] object-contain">
 
             <div class="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-i2ta-purple/40 bg-i2ta-purple/10 text-i2ta-cyan text-xs md:text-sm font-semibold tracking-[0.2em] uppercase gsap-hero">
                 <span class="w-2 h-2 rounded-full bg-i2ta-cyan animate-pulse shadow-[0_0_8px_#00E0FF]"></span>
@@ -319,19 +300,17 @@
             </p>
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center gsap-hero w-full sm:w-auto">
-                <a href="#brandbook" class="btn-primary w-full sm:w-auto px-8">Explorar Diretrizes <i class="ph ph-arrow-down-right"></i></a>
-                <a href="#materiais" class="btn-secondary w-full sm:w-auto px-8"><i class="ph ph-cube"></i> Design System</a>
+                <a href="#estrategia" class="btn-primary w-full sm:w-auto px-8">Ver Estratégia <i class="ph ph-arrow-down-right"></i></a>
+                <a href="#brandbook" class="btn-secondary w-full sm:w-auto px-8"><i class="ph ph-cube"></i> Design System</a>
             </div>
         </div>
         
-        <!-- Scroll indicator -->
         <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce text-i2ta-neutral-gray z-10">
             <span class="text-[10px] md:text-xs mb-2 tracking-[0.2em] uppercase font-display text-i2ta-cyan">Scroll</span>
             <i class="ph ph-mouse-simple text-xl md:text-2xl text-i2ta-purple"></i>
         </div>
     </section>
 
-    <!-- 2. SOBRE O INSTITUTO (TECH FOCUS) -->
     <section id="sobre" class="py-16 md:py-24 relative z-10">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -364,19 +343,15 @@
                     </div>
                 </div>
 
-                <!-- Abstract Visual representing Data Nodes -->
                 <div class="relative h-[400px] md:h-[500px] w-full gsap-reveal rounded-2xl overflow-hidden border border-white/5 bg-i2ta-dark flex items-center justify-center shadow-[inset_0_0_100px_rgba(0,0,0,0.8)]">
                     <div class="absolute inset-0 bg-gradient-to-br from-i2ta-purple-dark/30 to-transparent"></div>
                     <div class="bg-grid opacity-30"></div>
                     
                     <div class="relative w-full h-full">
-                        <!-- Core Node (Animated Pulse) -->
                         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 md:w-44 md:h-44 rounded-2xl border border-i2ta-purple/40 flex items-center justify-center z-10 bg-i2ta-dark/90 backdrop-blur-md rotate-45 anim-core">
-                            <!-- Logo no nó central -->
-                            <img src="https://i.imgur.com/2zvS5KN.png" class="h-10 md:h-16 -rotate-45 drop-shadow-[0_0_12px_rgba(123,63,228,0.8)] object-contain" alt="Tech Node">
+                            <img src="https://raw.githubusercontent.com/Opresida/2ita-manualdemarca/refs/heads/main/logo.svg" class="h-10 md:h-16 -rotate-45 drop-shadow-[0_0_12px_rgba(123,63,228,0.8)] object-contain" alt="Tech Node">
                         </div>
                         
-                        <!-- Satellite Nodes (Animated Float) -->
                         <div class="absolute top-1/4 left-1/4 w-16 h-16 md:w-20 md:h-20 rounded-xl border border-i2ta-cyan/40 flex items-center justify-center bg-i2ta-dark/90 backdrop-blur-sm rotate-45 anim-sat-1">
                             <span class="text-[10px] md:text-xs text-center text-i2ta-cyan font-display font-bold -rotate-45">PD&I</span>
                         </div>
@@ -387,7 +362,6 @@
                             <span class="text-[10px] md:text-xs text-gray-300 font-display -rotate-45">Data</span>
                         </div>
 
-                        <!-- Tech Connections (SVG Animated Data Flow) -->
                         <svg class="absolute inset-0 w-full h-full -z-10" style="opacity: 0.6;">
                             <path d="M 25% 25% L 50% 25% L 50% 50%" stroke="#00E0FF" stroke-width="2" fill="none" class="anim-line-fast" />
                             <path d="M 75% 75% L 50% 75% L 50% 50%" stroke="#7B3FE4" stroke-width="2" fill="none" class="anim-line-slow" />
@@ -399,12 +373,10 @@
         </div>
     </section>
 
-    <!-- 3. MISSÃO, VISÃO E VALORES -->
     <section class="py-16 md:py-24 bg-i2ta-blue-deep/20 relative border-y border-white/5">
         <div class="bg-grid opacity-20"></div>
         <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Missão -->
                 <div class="glass-card p-8 md:p-10 gsap-reveal border-t-i2ta-purple/50">
                     <div class="w-12 h-12 rounded-lg bg-i2ta-purple/10 flex items-center justify-center mb-6 border border-i2ta-purple/20">
                         <i class="ph ph-crosshair text-2xl text-i2ta-purple"></i>
@@ -414,7 +386,6 @@
                         Transformar inteligência de dados em soluções tecnológicas aplicadas, impulsionando a competitividade e escalabilidade da indústria através de pesquisa de ponta, algoritmos e automação contínua.
                     </p>
                 </div>
-                <!-- Visão -->
                 <div class="glass-card p-8 md:p-10 gsap-reveal border-t-i2ta-cyan/50">
                     <div class="w-12 h-12 rounded-lg bg-i2ta-cyan/10 flex items-center justify-center mb-6 border border-i2ta-cyan/20">
                         <i class="ph ph-eye text-2xl text-i2ta-cyan"></i>
@@ -425,7 +396,6 @@
                     </p>
                 </div>
                 
-                <!-- Valores -->
                 <div class="glass-card p-8 md:p-10 gsap-reveal md:col-span-2 lg:col-span-1 border-t-gray-500/50">
                     <div class="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center mb-6 border border-white/10">
                         <i class="ph ph-hexagon text-2xl text-i2ta-white"></i>
@@ -458,7 +428,112 @@
         </div>
     </section>
 
-    <!-- 4. IDENTIDADE VISUAL & COMPONENTES UI (DIRETRIZES) -->
+    <section id="estrategia" class="py-16 md:py-24 relative overflow-hidden bg-i2ta-dark">
+        <div class="glow-blob w-[40rem] h-[40rem] bg-i2ta-purple/10 top-0 right-0 transform translate-x-1/2 -translate-y-1/4"></div>
+        <div class="bg-grid opacity-20"></div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+            <div class="mb-12 md:mb-16 gsap-reveal text-center md:text-left">
+                <span class="text-i2ta-purple tracking-[0.2em] text-xs md:text-sm uppercase font-bold mb-3 block">Brand Strategy</span>
+                <h2 class="font-display text-3xl md:text-5xl font-bold text-i2ta-white tracking-tight">Comunicação & Audiência</h2>
+                <p class="text-i2ta-neutral-gray mt-4 max-w-2xl mx-auto md:mx-0 text-sm md:text-base">A linguagem do i2TA abandona o corporativismo genérico. Operamos como uma Big Tech: comunicação visionária, pragmática e voltada a tomadores de decisão.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8 md:gap-12">
+                
+                <div class="lg:col-span-7 glass-card p-6 md:p-10 gsap-reveal">
+                    <div class="flex items-center justify-between border-b border-white/10 pb-5 mb-6">
+                        <div>
+                            <h3 class="text-lg md:text-xl font-display font-bold text-i2ta-white">Target Persona</h3>
+                            <p class="text-[10px] md:text-xs text-i2ta-cyan font-mono uppercase tracking-widest mt-1">O C-Level de Alta Performance</p>
+                        </div>
+                        <div class="w-12 h-12 rounded-full bg-i2ta-darker border border-white/10 flex items-center justify-center">
+                            <i class="ph-fill ph-user-focus text-2xl text-i2ta-purple"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-4 mb-8">
+                        <div class="bg-i2ta-darker rounded px-4 py-2 border border-white/5">
+                            <span class="block text-[9px] text-gray-500 uppercase font-bold">Cargos (Roles)</span>
+                            <span class="text-sm font-display text-white">CTO, CIO, Diretor(a), CEO</span>
+                        </div>
+                        <div class="bg-i2ta-darker rounded px-4 py-2 border border-white/5">
+                            <span class="block text-[9px] text-gray-500 uppercase font-bold">Idade (Age)</span>
+                            <span class="text-sm font-display text-white">35 a 55 anos</span>
+                        </div>
+                        <div class="bg-i2ta-darker rounded px-4 py-2 border border-white/5">
+                            <span class="block text-[9px] text-gray-500 uppercase font-bold">Setor</span>
+                            <span class="text-sm font-display text-white">Indústria / Manufatura</span>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+                        <div>
+                            <h4 class="text-xs font-bold text-i2ta-support-error uppercase tracking-wider mb-3 flex items-center gap-2"><i class="ph-fill ph-warning-circle"></i> Pain Points</h4>
+                            <ul class="space-y-3 text-xs md:text-sm text-gray-400 leading-relaxed">
+                                <li><strong class="text-white">A "Gordura" Operacional:</strong> Desperdício, custos logísticos e linhas de produção não otimizadas.</li>
+                                <li><strong class="text-white">O "Teatro" da Inovação:</strong> Cansados de buzzwords (IoT, IA) sem impacto prático ou código rodando no chão de fábrica.</li>
+                                <li><strong class="text-white">Apagão Tecnológico:</strong> Escassez local de talentos hiperespecializados em dados e nuvem.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-i2ta-support-success uppercase tracking-wider mb-3 flex items-center gap-2"><i class="ph-fill ph-star"></i> Goals & Desires</h4>
+                            <ul class="space-y-3 text-xs md:text-sm text-gray-400 leading-relaxed">
+                                <li><strong class="text-white">Previsibilidade:</strong> Transformar fábricas em ecossistemas autônomos movidos a dados reais.</li>
+                                <li><strong class="text-white">Parceria Nível Silício:</strong> Desejam a mentalidade, agilidade e rigor das Big Techs no seu quintal.</li>
+                                <li><strong class="text-white">Vantagem Global:</strong> Não apenas atender ao Brasil, mas operar a planta mais tecnológica da corporação no mundo.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 pt-5 border-t border-white/5">
+                        <p class="text-xs text-gray-400"><strong class="text-i2ta-cyan font-mono uppercase tracking-widest text-[10px]">Comportamento:</strong> Zero paciência para "fluff". Pragmatismo. Consome informação premium (MIT Tech Review, HBR). Avalia arquitetura, prazos e ROI em minutos.</p>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 flex flex-col">
+                    <h3 class="text-lg md:text-xl font-display font-bold text-i2ta-white mb-6 gsap-reveal">Voice & Tone Pillars</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 flex-1">
+                        
+                        <div class="bg-gradient-to-r from-i2ta-darker to-transparent border border-white/5 rounded-xl p-5 hover:border-i2ta-purple/30 transition-colors gsap-reveal group">
+                            <div class="flex items-center gap-3 mb-2">
+                                <i class="ph-fill ph-crown text-xl text-i2ta-purple"></i>
+                                <h4 class="font-bold text-white font-display">Visionário & Autoritário</h4>
+                            </div>
+                            <p class="text-xs text-gray-400">O i2TA não "tenta" ajudar; ele direciona o futuro. Linguagem que transpira confiança, liderança intelectual e disrupção. Não pedimos licença para inovar.</p>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-i2ta-darker to-transparent border border-white/5 rounded-xl p-5 hover:border-i2ta-cyan/30 transition-colors gsap-reveal group">
+                            <div class="flex items-center gap-3 mb-2">
+                                <i class="ph-fill ph-code text-xl text-i2ta-cyan"></i>
+                                <h4 class="font-bold text-white font-display">Técnico & Preciso</h4>
+                            </div>
+                            <p class="text-xs text-gray-400">Comunicação baseada em dados e engenharia. Sem jargões vazios, direto ao ponto. Usa termos complexos (escalabilidade, latência) com naturalidade.</p>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-i2ta-darker to-transparent border border-white/5 rounded-xl p-5 hover:border-white/30 transition-colors gsap-reveal group">
+                            <div class="flex items-center gap-3 mb-2">
+                                <i class="ph-fill ph-diamond text-xl text-white"></i>
+                                <h4 class="font-bold text-white font-display">Sofisticado & Minimalista</h4>
+                            </div>
+                            <p class="text-xs text-gray-400">Menos é mais. Frases curtas de alto impacto valem mais que parágrafos logos. A sofisticação vem da precisão cirúrgica das palavras e da arquitetura limpa.</p>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-i2ta-darker to-transparent border border-white/5 rounded-xl p-5 hover:border-i2ta-support-success/30 transition-colors gsap-reveal group">
+                            <div class="flex items-center gap-3 mb-2">
+                                <i class="ph-fill ph-rocket-launch text-xl text-i2ta-support-success"></i>
+                                <h4 class="font-bold text-white font-display">Orientado à Execução</h4>
+                            </div>
+                            <p class="text-xs text-gray-400">Pragmático e resolvedor de problemas. O discurso foca na aplicação industrial, deploy em ambiente real e retorno sobre investimento de impacto bilionário.</p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <section id="brandbook" class="py-16 md:py-24 relative overflow-hidden">
         <div class="glow-blob w-[40rem] h-[40rem] bg-i2ta-purple-dark/50 top-1/2 left-0 transform -translate-y-1/2"></div>
         <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
@@ -468,9 +543,7 @@
                 <p class="text-i2ta-neutral-gray mt-4 max-w-2xl mx-auto md:mx-0 text-sm md:text-base">A consistência visual é a base da interface digital. Abaixo estão os tokens de assinatura, cores puras e hierarquia tipográfica do instituto.</p>
             </div>
 
-            <!-- Logo & Colors -->
-            <div class="grid lg:grid-cols-2 gap-8 md:gap-12 mb-12 md:mb-16">
-                <!-- Logotipo Oficial Modificado para Novo SVG -->
+            <div class="grid lg:grid-cols-2 gap-8 md:gap-12 mb-8 md:mb-12">
                 <div class="glass-card p-6 md:p-10 gsap-reveal">
                     <h3 class="text-lg md:text-xl font-display font-bold text-i2ta-white mb-6 border-b border-white/10 pb-4 flex justify-between">
                         Assinatura Visual Oficial
@@ -480,61 +553,76 @@
                     <div class="bg-i2ta-dark rounded-xl p-6 md:p-12 flex items-center justify-center border border-white/5 mb-6 relative overflow-hidden h-48 md:h-64 shadow-inner">
                         <div class="absolute inset-0 bg-grid opacity-30"></div>
                         
-                        <!-- Logo Exibição -->
-                        <img src="https://i.imgur.com/2zvS5KN.png" alt="i2TA Logo" class="h-24 md:h-32 relative z-10 drop-shadow-[0_0_20px_rgba(123,63,228,0.5)] object-contain">
+                        <img src="https://raw.githubusercontent.com/Opresida/2ita-manualdemarca/refs/heads/main/logo.svg" alt="i2TA Logo" class="h-24 md:h-32 relative z-10 drop-shadow-[0_0_20px_rgba(123,63,228,0.5)] object-contain">
                         
-                        <!-- Safe area / Tech frames -->
                         <div class="absolute top-4 left-4 border-l-2 border-t-2 border-i2ta-purple/50 w-6 h-6"></div>
                         <div class="absolute top-4 right-4 border-r-2 border-t-2 border-i2ta-purple/50 w-6 h-6"></div>
                         <div class="absolute bottom-4 left-4 border-l-2 border-b-2 border-i2ta-purple/50 w-6 h-6"></div>
                         <div class="absolute bottom-4 right-4 border-r-2 border-b-2 border-i2ta-purple/50 w-6 h-6"></div>
                         <div class="absolute top-4 left-12 text-[9px] text-i2ta-cyan tracking-widest uppercase font-mono">Clear Space</div>
                     </div>
-                    <p class="text-xs md:text-sm text-gray-400 leading-relaxed">A identidade central atua como o coração algorítmico da marca. O símbolo tech se sobressai nos fundos escuros do ecossistema.</p>
+                    <p class="text-xs md:text-sm text-gray-400 leading-relaxed">A identidade central atua como o coração algorítmico da marca. O logotipo principal deve ser priorizado em todas as comunicações horizontais.</p>
                 </div>
 
-                <!-- Paleta de Cores (Nova Paleta Hi-Tech) -->
                 <div class="glass-card p-6 md:p-10 gsap-reveal">
-                    <h3 class="text-lg md:text-xl font-display font-bold text-i2ta-white mb-6 border-b border-white/10 pb-4">Cores Globais (Tokens)</h3>
+                    <h3 class="text-lg md:text-xl font-display font-bold text-i2ta-white mb-6 border-b border-white/10 pb-4 flex justify-between">
+                        Ícone do Sistema
+                        <span class="text-[10px] bg-white/10 px-2 py-1 rounded text-gray-400 font-mono">v4.0</span>
+                    </h3>
                     
-                    <div class="space-y-6">
-                        <!-- Primárias -->
-                        <div>
-                            <p class="text-[10px] md:text-xs text-i2ta-cyan mb-2 uppercase tracking-[0.2em] font-bold">Brand Primary</p>
-                            <div class="flex flex-col sm:flex-row gap-4">
-                                <div class="flex-1 group">
-                                    <div class="h-12 md:h-16 rounded-t-lg bg-i2ta-purple border border-b-0 border-white/5 group-hover:bg-opacity-90 transition-all shadow-[0_0_15px_rgba(123,63,228,0.3)]"></div>
-                                    <div class="bg-i2ta-darker p-3 rounded-b-lg border border-white/5 text-xs">
-                                        <div class="font-bold text-i2ta-white font-display">Roxo Neon</div>
-                                        <div class="text-gray-500 font-mono mt-1 text-[10px]">HEX #7B3FE4</div>
-                                    </div>
+                    <div class="bg-i2ta-dark rounded-xl p-6 md:p-12 flex items-center justify-center border border-white/5 mb-6 relative overflow-hidden h-48 md:h-64 shadow-inner">
+                        <div class="absolute inset-0 bg-grid opacity-30"></div>
+                        
+                        <img src="https://raw.githubusercontent.com/Opresida/2ita-manualdemarca/refs/heads/main/icone.svg" alt="i2TA Ícone" class="h-24 md:h-32 relative z-10 drop-shadow-[0_0_20px_rgba(0,224,255,0.5)] object-contain">
+                        
+                        <div class="absolute top-4 left-4 border-l-2 border-t-2 border-i2ta-cyan/50 w-6 h-6"></div>
+                        <div class="absolute top-4 right-4 border-r-2 border-t-2 border-i2ta-cyan/50 w-6 h-6"></div>
+                        <div class="absolute bottom-4 left-4 border-l-2 border-b-2 border-i2ta-cyan/50 w-6 h-6"></div>
+                        <div class="absolute bottom-4 right-4 border-r-2 border-b-2 border-i2ta-cyan/50 w-6 h-6"></div>
+                        <div class="absolute top-4 left-12 text-[9px] text-i2ta-purple tracking-widest uppercase font-mono">Avatar Area</div>
+                    </div>
+                    <p class="text-xs md:text-sm text-gray-400 leading-relaxed">O ícone isolado (símbolo) é utilizado estritamente em avatares, favicons, aplicativos e interfaces onde o espaço (1:1) é reduzido, mantendo a essência tech.</p>
+                </div>
+            </div>
+
+            <div class="glass-card p-6 md:p-10 gsap-reveal mb-12 md:mb-16">
+                <h3 class="text-lg md:text-xl font-display font-bold text-i2ta-white mb-6 border-b border-white/10 pb-4">Cores Globais (Tokens)</h3>
+                
+                <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+                    <div>
+                        <p class="text-[10px] md:text-xs text-i2ta-cyan mb-2 uppercase tracking-[0.2em] font-bold">Brand Primary</p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <div class="flex-1 group">
+                                <div class="h-12 md:h-16 rounded-t-lg bg-i2ta-purple border border-b-0 border-white/5 group-hover:bg-opacity-90 transition-all shadow-[0_0_15px_rgba(123,63,228,0.3)]"></div>
+                                <div class="bg-i2ta-darker p-3 rounded-b-lg border border-white/5 text-xs">
+                                    <div class="font-bold text-i2ta-white font-display">Roxo Neon</div>
+                                    <div class="text-gray-500 font-mono mt-1 text-[10px]">HEX #7B3FE4</div>
                                 </div>
-                                <div class="flex-1 group">
-                                    <div class="h-12 md:h-16 rounded-t-lg bg-i2ta-cyan border border-b-0 border-white/5 group-hover:bg-opacity-90 transition-all shadow-[0_0_15px_rgba(0,224,255,0.2)]"></div>
-                                    <div class="bg-i2ta-darker p-3 rounded-b-lg border border-white/5 text-xs">
-                                        <div class="font-bold text-i2ta-white font-display">Azul Ciano</div>
-                                        <div class="text-gray-500 font-mono mt-1 text-[10px]">HEX #00E0FF</div>
-                                    </div>
+                            </div>
+                            <div class="flex-1 group">
+                                <div class="h-12 md:h-16 rounded-t-lg bg-i2ta-cyan border border-b-0 border-white/5 group-hover:bg-opacity-90 transition-all shadow-[0_0_15px_rgba(0,224,255,0.2)]"></div>
+                                <div class="bg-i2ta-darker p-3 rounded-b-lg border border-white/5 text-xs">
+                                    <div class="font-bold text-i2ta-white font-display">Azul Ciano</div>
+                                    <div class="text-gray-500 font-mono mt-1 text-[10px]">HEX #00E0FF</div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Secundárias / Bases -->
-                        <div>
-                            <p class="text-[10px] md:text-xs text-i2ta-cyan mb-2 uppercase tracking-[0.2em] font-bold mt-4">Bases & Backgrounds</p>
-                            <div class="flex flex-col sm:flex-row gap-4">
-                                <div class="flex-1 group">
-                                    <div class="h-12 md:h-16 rounded-t-lg bg-i2ta-dark border border-b-0 border-white/5"></div>
-                                    <div class="bg-i2ta-darker p-3 rounded-b-lg border border-white/5 text-xs">
-                                        <div class="font-bold text-i2ta-white font-display">Preto Profundo</div>
-                                        <div class="text-gray-500 font-mono mt-1 text-[10px]">HEX #0A0F1C</div>
-                                    </div>
+                    </div>
+                    <div>
+                        <p class="text-[10px] md:text-xs text-i2ta-cyan mb-2 uppercase tracking-[0.2em] font-bold">Bases & Backgrounds</p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <div class="flex-1 group">
+                                <div class="h-12 md:h-16 rounded-t-lg bg-i2ta-dark border border-b-0 border-white/5"></div>
+                                <div class="bg-i2ta-darker p-3 rounded-b-lg border border-white/5 text-xs">
+                                    <div class="font-bold text-i2ta-white font-display">Preto Profundo</div>
+                                    <div class="text-gray-500 font-mono mt-1 text-[10px]">HEX #0A0F1C</div>
                                 </div>
-                                <div class="flex-1 group">
-                                    <div class="h-12 md:h-16 rounded-t-lg bg-i2ta-white border border-b-0 border-gray-300"></div>
-                                    <div class="bg-i2ta-darker p-3 rounded-b-lg border border-white/5 text-xs">
-                                        <div class="font-bold text-i2ta-white font-display">Branco Tech</div>
-                                        <div class="text-gray-500 font-mono mt-1 text-[10px]">HEX #F5F7FA</div>
-                                    </div>
+                            </div>
+                            <div class="flex-1 group">
+                                <div class="h-12 md:h-16 rounded-t-lg bg-i2ta-white border border-b-0 border-gray-300"></div>
+                                <div class="bg-i2ta-darker p-3 rounded-b-lg border border-white/5 text-xs">
+                                    <div class="font-bold text-i2ta-white font-display">Branco Tech</div>
+                                    <div class="text-gray-500 font-mono mt-1 text-[10px]">HEX #F5F7FA</div>
                                 </div>
                             </div>
                         </div>
@@ -542,9 +630,7 @@
                 </div>
             </div>
 
-            <!-- Typography & UI Components -->
             <div class="grid lg:grid-cols-2 gap-8 md:gap-12">
-                <!-- Tipografia -->
                 <div class="glass-card p-6 md:p-10 gsap-reveal">
                     <h3 class="text-lg md:text-xl font-display font-bold text-i2ta-white mb-6 border-b border-white/10 pb-4">Tipografia do Sistema</h3>
                     
@@ -569,7 +655,6 @@
                     </div>
                 </div>
 
-                <!-- UI Components (Design System) -->
                 <div class="glass-card p-6 md:p-10 gsap-reveal">
                     <h3 class="text-lg md:text-xl font-display font-bold text-i2ta-white mb-6 border-b border-white/10 pb-4">Componentes de Interface</h3>
                     
@@ -588,7 +673,6 @@
                                 <span class="bg-i2ta-support-success/10 text-i2ta-support-success text-[10px] md:text-xs px-3 py-1.5 rounded border border-i2ta-support-success/30 font-medium tracking-wide">Status: Online</span>
                                 <span class="bg-i2ta-purple/10 text-i2ta-purple text-[10px] md:text-xs px-3 py-1.5 rounded border border-i2ta-purple/30 font-medium tracking-wide">Machine Learning</span>
                             </div>
-                            <!-- Mock Input -->
                             <div class="relative group">
                                 <i class="ph ph-magnifying-glass absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 group-focus-within:text-i2ta-cyan transition-colors"></i>
                                 <input type="text" placeholder="Consultar banco de dados..." class="w-full bg-i2ta-darker border border-white/10 rounded-lg pl-10 pr-4 py-3 md:py-3.5 text-xs md:text-sm text-i2ta-white focus:outline-none focus:border-i2ta-cyan focus:ring-1 focus:ring-i2ta-cyan transition-all font-mono">
@@ -600,9 +684,7 @@
         </div>
     </section>
 
-    <!-- 5. MATERIAIS GRÁFICOS PREMIUM (REDESENHADO TECH) -->
     <section id="materiais" class="py-16 md:py-24 relative overflow-hidden bg-i2ta-darker border-t border-white/5">
-        <!-- background styling -->
         <div class="glow-blob w-[30rem] h-[30rem] md:w-[50rem] md:h-[50rem] bg-i2ta-cyan/10 top-0 right-0 transform translate-x-1/3"></div>
         <div class="bg-grid opacity-30"></div>
         
@@ -615,7 +697,6 @@
             
             <div class="grid md:grid-cols-2 gap-12 lg:gap-16">
                 
-                <!-- 1. Cartão de Visita (3D Flip) -->
                 <div class="gsap-reveal group">
                     <div class="flex items-center gap-3 mb-6">
                         <div class="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-i2ta-purple/20 flex items-center justify-center border border-i2ta-purple/30">
@@ -624,26 +705,20 @@
                         <h3 class="text-lg md:text-xl font-display font-bold text-i2ta-white">Smart Card (NFC)</h3>
                     </div>
                     
-                    <!-- Container 3D do Cartão -->
                     <div class="perspective-1000 w-full max-w-[420px] mx-auto aspect-[1.75/1] cursor-pointer group-hover:shadow-[0_0_30px_rgba(123,63,228,0.2)] transition-all duration-300 rounded-xl" onclick="this.querySelector('.flip-inner').classList.toggle('rotate-y-180')">
                         <div class="flip-inner relative w-full h-full transform-style-3d transition-transform duration-700 ease-in-out">
                             
-                            <!-- Lado da Frente (Dark/Tech) -->
                             <div class="absolute inset-0 backface-hidden bg-i2ta-dark border border-white/10 rounded-xl flex items-center justify-center overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.6)]">
-                                <!-- Acabamento Tech Edge -->
                                 <div class="absolute left-0 top-0 w-1.5 md:w-2 h-full bg-gradient-to-b from-i2ta-purple to-i2ta-cyan"></div>
                                 <div class="absolute inset-0 bg-grid opacity-10"></div>
                                 
-                                <!-- Logo Fundo Escuro -->
-                                <img src="https://i.imgur.com/2zvS5KN.png" alt="i2TA Logo" class="h-10 md:h-14 relative z-10 drop-shadow-[0_0_15px_rgba(123,63,228,0.5)] object-contain">
+                                <img src="https://raw.githubusercontent.com/Opresida/2ita-manualdemarca/refs/heads/main/logo.svg" alt="i2TA Logo" class="h-10 md:h-14 relative z-10 drop-shadow-[0_0_15px_rgba(123,63,228,0.5)] object-contain">
                                 
-                                <!-- Chip Simulacao -->
                                 <div class="absolute top-4 right-4 w-6 h-4 md:w-8 md:h-6 rounded border border-gray-600/50 bg-gray-800/30 flex items-center justify-center">
                                     <div class="w-3 h-2 border border-gray-500/50"></div>
                                 </div>
                             </div>
                             
-                            <!-- Lado do Verso (Light/Minimal) -->
                             <div class="absolute inset-0 backface-hidden rotate-y-180 bg-i2ta-white rounded-xl p-5 md:p-8 flex flex-col justify-center shadow-[0_15px_30px_rgba(0,0,0,0.4)] border border-gray-200">
                                 <h4 class="text-gray-900 font-display font-bold text-lg md:text-2xl tracking-tight">Leonardo Câmara</h4>
                                 <p class="text-i2ta-purple font-display text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] mb-3 md:mb-5">Diretor Executivo</p>
@@ -655,15 +730,13 @@
                                     <p class="text-gray-600 text-[10px] md:text-xs flex items-center gap-2"><i class="ph-fill ph-phone text-i2ta-cyan"></i> +55 92 90000-0000</p>
                                 </div>
                                 
-                                <!-- Logo Fundo Claro (Filtro Dark) -->
-                                <img src="https://i.imgur.com/2zvS5KN.png" alt="i2TA Logo" class="h-5 md:h-6 absolute bottom-4 right-4 md:bottom-6 md:right-6 opacity-90 filter brightness-0 object-contain">
+                                <img src="https://raw.githubusercontent.com/Opresida/2ita-manualdemarca/refs/heads/main/logo.svg" alt="i2TA Logo" class="h-5 md:h-6 absolute bottom-4 right-4 md:bottom-6 md:right-6 opacity-90 filter brightness-0 object-contain">
                             </div>
                         </div>
                     </div>
                     <p class="text-center text-[10px] md:text-xs text-i2ta-neutral-gray mt-4 md:mt-6 uppercase tracking-[0.2em] animate-pulse"><i class="ph ph-hand-tap"></i> Clique para virar o card</p>
                 </div>
 
-                <!-- 2. Papel Timbrado -->
                 <div class="gsap-reveal group" style="transition-delay: 100ms;">
                     <div class="flex items-center gap-3 mb-6">
                         <div class="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-white/5 flex items-center justify-center border border-white/10">
@@ -675,41 +748,33 @@
                     <div class="w-full flex justify-center perspective-1000">
                         <div class="w-full max-w-[340px] aspect-[1/1.414] bg-i2ta-white rounded-sm shadow-[0_20px_40px_rgba(0,0,0,0.8)] p-5 md:p-6 flex flex-col relative overflow-hidden transform md:group-hover:-rotate-y-4 md:group-hover:rotate-x-4 md:group-hover:scale-[1.02] transition-all duration-700 ease-out border border-gray-200">
                             
-                            <!-- Efeito de sombra interna -->
                             <div class="absolute inset-0 bg-gradient-to-br from-white via-transparent to-gray-200 opacity-50 pointer-events-none"></div>
 
-                            <!-- Tech Header Bar -->
                             <div class="absolute top-0 left-0 w-full h-1 md:h-1.5 bg-gradient-to-r from-i2ta-purple via-i2ta-purple-dark to-i2ta-cyan"></div>
                             
-                            <!-- Marca d'água -->
                             <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-[0.03] pointer-events-none">
-                                <img src="https://i.imgur.com/2zvS5KN.png" class="w-40 md:w-48 filter brightness-0" alt="Watermark">
+                                <img src="https://raw.githubusercontent.com/Opresida/2ita-manualdemarca/refs/heads/main/logo.svg" class="w-40 md:w-48 filter brightness-0" alt="Watermark">
                             </div>
 
-                            <!-- Header -->
                             <div class="flex justify-between items-end mb-5 md:mb-8 relative z-10 pt-3">
-                                <!-- Logo Light -->
-                                <img src="https://i.imgur.com/2zvS5KN.png" alt="i2TA Logo" class="h-4 md:h-5 filter brightness-0 object-contain">
+                                <img src="https://raw.githubusercontent.com/Opresida/2ita-manualdemarca/refs/heads/main/logo.svg" alt="i2TA Logo" class="h-4 md:h-5 filter brightness-0 object-contain">
 
                                 <div class="text-[6px] md:text-[7px] text-gray-400 text-right uppercase tracking-[0.2em] font-medium font-mono">
                                     DOC_ID: 2026.001<br>DATE: SYSTEM.NOW()
                                 </div>
                             </div>
                             
-                            <!-- Corpo/Texto Simulado -->
                             <div class="flex-1 relative z-10 text-[7px] md:text-[8px] text-gray-800 leading-relaxed font-sans">
                                 <p class="mb-3 md:mb-4 font-bold font-display uppercase tracking-wide text-gray-900 border-b border-gray-200 pb-1">Diretrizes de Implementação de Rede</p>
                                 <p class="mb-2 text-justify">Este documento estabelece as arquiteturas padronizadas para o deploy de soluções de Inteligência Artificial em ambientes industriais de alto risco. A conformidade com os protocolos de segurança criptografados é mandatória.</p>
                                 <p class="mb-2 text-justify">Ressaltamos que a escalabilidade dos servidores locais deve seguir as especificações da ISO Tech 9001, garantindo processamento em tempo real sem latência para a manufatura autônoma.</p>
                                 <p class="mb-4 md:mb-6 mt-4">END_OF_DOCUMENT</p>
                                 
-                                <!-- Assinatura Digital Style -->
                                 <div class="w-16 md:w-20 h-0.5 bg-i2ta-purple mb-1"></div>
                                 <p class="font-bold text-gray-900 text-[7px] md:text-[8px] font-display">Leonardo Câmara</p>
                                 <p class="text-[5px] md:text-[6px] text-gray-500 uppercase tracking-widest font-mono">AUTH_KEY: 0x8A7B6C</p>
                             </div>
                             
-                            <!-- Footer -->
                             <div class="mt-auto pt-3 md:pt-4 border-t border-gray-200 relative z-10 flex justify-between items-center text-[5px] md:text-[6px] text-gray-400 uppercase tracking-widest font-mono">
                                 <div>[ i2ta.org.br ]</div>
                                 <div class="text-right">SYS_COM: contato@i2ta.org.br</div>
@@ -718,7 +783,6 @@
                     </div>
                 </div>
 
-                <!-- 3. Envelope Institucional -->
                 <div class="gsap-reveal group" style="transition-delay: 200ms;">
                     <div class="flex items-center gap-3 mb-6">
                         <div class="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-i2ta-cyan/20 flex items-center justify-center border border-i2ta-cyan/30">
@@ -728,22 +792,16 @@
                     </div>
                     
                     <div class="w-full flex justify-center mt-4 md:mt-8">
-                        <!-- Design moderno do Envelope (Dark Mode) -->
                         <div class="w-full max-w-[420px] aspect-[2.2/1] bg-[#0A0F1C] border border-white/10 rounded shadow-[0_20px_40px_rgba(0,0,0,0.8)] relative overflow-hidden transform md:group-hover:-translate-y-2 transition-transform duration-500">
                             
-                            <!-- Glow Tech -->
                             <div class="absolute bottom-[-20%] right-[-10%] w-32 h-32 md:w-48 md:h-48 bg-i2ta-purple/20 rounded-full blur-[40px]"></div>
                             
-                            <!-- Logo aplicada Dark -->
-                            <img src="https://i.imgur.com/2zvS5KN.png" alt="i2TA Logo" class="h-6 md:h-8 absolute top-4 left-5 md:top-6 md:left-8 drop-shadow-[0_0_5px_rgba(123,63,228,0.5)] object-contain">
+                            <img src="https://raw.githubusercontent.com/Opresida/2ita-manualdemarca/refs/heads/main/logo.svg" alt="i2TA Logo" class="h-6 md:h-8 absolute top-4 left-5 md:top-6 md:left-8 drop-shadow-[0_0_5px_rgba(123,63,228,0.5)] object-contain">
                             
-                            <!-- Borda Superior Cyan -->
                             <div class="absolute top-0 left-0 w-full h-1 bg-i2ta-purple"></div>
 
-                            <!-- Carimbo "CONFIDENTIAL" -->
                             <div class="absolute top-4 right-5 md:top-6 md:right-8 border border-i2ta-support-error/50 text-i2ta-support-error/80 text-[6px] md:text-[8px] font-mono px-2 py-0.5 rounded uppercase tracking-widest">Confidential</div>
 
-                            <!-- Window Panel Tech -->
                             <div class="absolute bottom-4 right-5 md:bottom-8 md:right-8 w-[50%] h-1/3 bg-black/40 rounded border border-white/10 p-2 md:p-3 backdrop-blur-md">
                                 <div class="w-2/3 h-1.5 md:h-2 bg-gray-500 rounded mb-1.5 md:mb-2"></div>
                                 <div class="w-full h-1 md:h-1.5 bg-gray-600/60 rounded mb-1 md:mb-1.5"></div>
@@ -753,7 +811,6 @@
                     </div>
                 </div>
 
-                <!-- 4. Assinatura de E-mail -->
                 <div class="gsap-reveal group" style="transition-delay: 300ms;">
                     <div class="flex items-center gap-3 mb-6">
                         <div class="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-i2ta-purple/20 flex items-center justify-center border border-i2ta-purple/30">
@@ -762,10 +819,8 @@
                         <h3 class="text-lg md:text-xl font-display font-bold text-i2ta-white">Digital Signature</h3>
                     </div>
                     
-                    <!-- Simulação de Cliente de E-mail Tech -->
                     <div class="w-full max-w-[480px] mx-auto bg-i2ta-darker rounded-xl border border-gray-700 overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.6)] md:group-hover:shadow-[0_0_30px_rgba(0,224,255,0.15)] transition-all duration-500">
                         
-                        <!-- OS Fake Header -->
                         <div class="h-8 md:h-10 bg-i2ta-dark flex items-center px-3 md:px-4 gap-1.5 md:gap-2 border-b border-gray-800">
                             <div class="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-i2ta-support-error"></div>
                             <div class="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-i2ta-support-warning"></div>
@@ -773,7 +828,6 @@
                             <div class="ml-auto text-gray-500 text-[10px] md:text-xs font-mono px-2">new_message.msg</div>
                         </div>
                         
-                        <!-- Área de Conteúdo Branca (O Email) -->
                         <div class="p-4 md:p-8 bg-i2ta-white">
                             <div class="space-y-1.5 md:space-y-2 mb-6 md:mb-8 opacity-30">
                                 <div class="w-3/4 h-1.5 md:h-2 bg-gray-500 rounded"></div>
@@ -781,13 +835,10 @@
                                 <div class="w-1/2 h-1.5 md:h-2 bg-gray-500 rounded"></div>
                             </div>
                             
-                            <!-- A Assinatura Tech -->
                             <div class="flex items-center gap-3 md:gap-5 pt-4 md:pt-5 border-t border-gray-200">
-                                <!-- Logo Light Mode -->
                                 <div class="pr-3 md:pr-5 border-r border-gray-300">
-                                    <img src="https://i.imgur.com/2zvS5KN.png" alt="i2TA Logo" class="h-8 md:h-10 filter brightness-0 object-contain">
+                                    <img src="https://raw.githubusercontent.com/Opresida/2ita-manualdemarca/refs/heads/main/logo.svg" alt="i2TA Logo" class="h-8 md:h-10 filter brightness-0 object-contain">
                                 </div>
-                                <!-- Infos Pessoais -->
                                 <div>
                                     <h4 class="text-gray-900 font-display font-bold text-sm md:text-base lg:text-lg leading-tight">Mariana Costa</h4>
                                     <p class="text-i2ta-purple text-[8px] md:text-[10px] font-bold uppercase tracking-[0.2em] mb-1 md:mb-2 font-display">Head of AI Research</p>
@@ -806,9 +857,7 @@
         </div>
     </section>
 
-    <!-- 6. CONECTIVIDADE (UI / PLATAFORMAS DIGITAIS) -->
     <section id="conectividade" class="py-16 md:py-24 relative overflow-hidden bg-[#0A0F1C] border-t border-white/5">
-        <!-- background styling -->
         <div class="glow-blob w-[30rem] h-[30rem] md:w-[40rem] md:h-[40rem] bg-i2ta-purple/10 bottom-0 right-0 transform translate-x-1/3 translate-y-1/3"></div>
         <div class="bg-grid"></div>
 
@@ -821,14 +870,12 @@
 
             <div class="grid lg:grid-cols-12 gap-8 lg:gap-8 items-center">
                 
-                <!-- Tela de Login (Esquerda) -->
                 <div class="lg:col-span-4 gsap-reveal">
                     <div class="w-full max-w-[360px] mx-auto bg-i2ta-darker/90 backdrop-blur-xl border border-white/10 rounded-2xl p-6 md:p-8 shadow-[0_15px_30px_rgba(0,0,0,0.8)] relative overflow-hidden group hover:border-i2ta-purple/40 transition-colors duration-500">
-                        <!-- Linha de detalhe Neon no topo -->
                         <div class="absolute top-0 left-0 w-full h-1 bg-gradient-official"></div>
                         
                         <div class="flex justify-center mb-6 md:mb-8 pt-2">
-                            <img src="https://i.imgur.com/2zvS5KN.png" alt="i2TA Logo" class="h-8 md:h-10 drop-shadow-[0_0_8px_rgba(123,63,228,0.5)] object-contain">
+                            <img src="https://raw.githubusercontent.com/Opresida/2ita-manualdemarca/refs/heads/main/logo.svg" alt="i2TA Logo" class="h-8 md:h-10 drop-shadow-[0_0_8px_rgba(123,63,228,0.5)] object-contain">
                         </div>
 
                         <h3 class="text-i2ta-white font-display font-bold text-lg md:text-xl text-center mb-6">Acesso ao Portal</h3>
@@ -862,18 +909,15 @@
                     </div>
                 </div>
 
-                <!-- Dashboard (Direita) - HIGH TECH UI -->
                 <div class="lg:col-span-8 gsap-reveal" style="transition-delay: 200ms;">
                     <div class="w-full bg-i2ta-dark border border-white/10 rounded-2xl overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.8)] flex flex-col h-[400px] md:h-[480px] group hover:shadow-[0_0_50px_rgba(0,224,255,0.1)] transition-shadow duration-500">
                         
-                        <!-- Topbar Tech UI -->
                         <div class="h-10 md:h-12 border-b border-white/5 flex items-center justify-between px-3 md:px-4 bg-i2ta-darker">
                             <div class="flex items-center gap-2">
-                                <img src="https://i.imgur.com/2zvS5KN.png" alt="i2TA Logo" class="h-4 md:h-5 opacity-70 object-contain">
+                                <img src="https://raw.githubusercontent.com/Opresida/2ita-manualdemarca/refs/heads/main/logo.svg" alt="i2TA Logo" class="h-4 md:h-5 opacity-70 object-contain">
                                 <span class="text-[10px] text-gray-600 font-mono hidden sm:inline-block border-l border-white/10 pl-2 ml-1">SYS.DASHBOARD</span>
                             </div>
                             
-                            <!-- Searchbar Header -->
                             <div class="hidden sm:flex flex-1 max-w-xs mx-4 h-6 md:h-7 bg-white/5 rounded items-center px-3 border border-white/5">
                                 <i class="ph ph-terminal-window text-[10px] md:text-xs text-i2ta-purple"></i>
                                 <span class="text-[9px] md:text-[10px] text-gray-500 ml-2 font-mono">Query database...</span>
@@ -888,9 +932,7 @@
                             </div>
                         </div>
 
-                        <!-- Main Dashboard Area -->
                         <div class="flex flex-1 overflow-hidden">
-                            <!-- Sidebar Mini -->
                             <div class="hidden sm:flex w-12 md:w-16 border-r border-white/5 bg-i2ta-darker flex-col items-center py-4 md:py-6 space-y-4 md:space-y-6 shrink-0">
                                 <div class="p-1.5 md:p-2 bg-i2ta-purple/20 rounded text-i2ta-purple cursor-pointer border border-i2ta-purple/30">
                                     <i class="ph-fill ph-squares-four text-lg md:text-xl"></i>
@@ -901,7 +943,6 @@
                                 <i class="ph ph-gear text-gray-600 text-lg md:text-xl mt-auto hover:text-i2ta-white cursor-pointer transition-colors"></i>
                             </div>
 
-                            <!-- Dashboard Content -->
                             <div class="flex-1 p-4 md:p-6 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-i2ta-purple-dark/20 via-i2ta-dark to-i2ta-dark overflow-y-auto">
                                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-4 md:mb-6 gap-3">
                                     <div>
@@ -913,7 +954,6 @@
                                     </button>
                                 </div>
                                 
-                                <!-- Stats Cards (Tech style) -->
                                 <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mb-4 md:mb-6">
                                     <div class="bg-i2ta-darker border border-white/10 rounded-lg p-3 md:p-4 relative overflow-hidden group">
                                         <div class="absolute left-0 top-0 w-1 h-full bg-i2ta-purple"></div>
@@ -931,14 +971,12 @@
                                         <div class="absolute left-0 top-0 w-1 h-full bg-i2ta-blue-deep"></div>
                                         <div class="text-gray-500 text-[9px] md:text-[10px] mb-1 font-mono uppercase">Server Load</div>
                                         <div class="text-i2ta-white font-display font-bold text-xl mt-1 tracking-tight">24.5%</div>
-                                        <!-- Progress bar fake -->
                                         <div class="w-full h-1 bg-gray-800 rounded mt-2 overflow-hidden">
                                             <div class="w-1/4 h-full bg-i2ta-cyan"></div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <!-- Chart Placeholder Tech -->
                                 <div class="bg-i2ta-darker border border-white/10 rounded-lg p-3 md:p-5 h-32 md:h-44 flex flex-col justify-end relative overflow-hidden">
                                     <div class="absolute inset-0 bg-grid opacity-20 pointer-events-none"></div>
                                     
@@ -947,7 +985,6 @@
                                         <span class="text-[8px] md:text-[10px] text-i2ta-cyan border border-i2ta-cyan/20 px-1.5 py-0.5 md:px-2 md:py-1 rounded bg-i2ta-cyan/10 font-mono">LIVE</span>
                                     </div>
                                     
-                                    <!-- Animated Fake Chart Lines/Bars -->
                                     <div class="flex items-end justify-between gap-1 md:gap-1.5 h-16 md:h-24 mt-6 md:mt-8 relative z-10">
                                         <div class="w-full bg-i2ta-purple-dark/50 rounded-t-sm h-[40%] hover:bg-i2ta-purple transition-colors"></div>
                                         <div class="w-full bg-i2ta-purple-dark/60 rounded-t-sm h-[55%] hover:bg-i2ta-purple transition-colors"></div>
@@ -960,10 +997,8 @@
                                         <div class="w-full bg-i2ta-purple-dark/60 rounded-t-sm h-[50%] hover:bg-i2ta-purple transition-colors"></div>
                                         <div class="w-full bg-i2ta-purple-dark/50 rounded-t-sm h-[30%] hover:bg-i2ta-purple transition-colors"></div>
                                     </div>
-                                    <!-- Baseline glow -->
                                     <div class="absolute bottom-0 left-0 w-full h-px bg-i2ta-cyan shadow-[0_0_10px_#00D4FF]"></div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -973,12 +1008,10 @@
         </div>
     </section>
 
-    <!-- 7. ROADMAP & METRICAS -->
     <section id="impacto" class="py-16 md:py-24 relative overflow-hidden border-t border-white/5 bg-i2ta-darker">
         <div class="bg-grid opacity-30"></div>
         <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
             
-            <!-- Roadmap de Produção -->
             <div class="mb-16 md:mb-24">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gsap-reveal">
                     <div>
@@ -989,7 +1022,6 @@
                 </div>
 
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-                    <!-- Fase 1 -->
                     <div class="glass-card p-5 md:p-6 gsap-reveal border-t-2 border-t-i2ta-cyan">
                         <div class="flex justify-between items-center mb-4 md:mb-5 border-b border-white/5 pb-3">
                             <span class="text-i2ta-white text-[10px] md:text-xs font-display tracking-widest uppercase">Fase 1</span>
@@ -1004,7 +1036,6 @@
                         </ul>
                     </div>
                     
-                    <!-- Fase 2 -->
                     <div class="glass-card p-5 md:p-6 gsap-reveal border-t-2 border-t-i2ta-purple">
                         <div class="flex justify-between items-center mb-4 md:mb-5 border-b border-white/5 pb-3">
                             <span class="text-i2ta-white text-[10px] md:text-xs font-display tracking-widest uppercase">Fase 2</span>
@@ -1019,7 +1050,6 @@
                         </ul>
                     </div>
 
-                    <!-- Fase 3 -->
                     <div class="glass-card p-5 md:p-6 gsap-reveal border-t-2 border-t-i2ta-white">
                         <div class="flex justify-between items-center mb-4 md:mb-5 border-b border-white/5 pb-3">
                             <span class="text-i2ta-white text-[10px] md:text-xs font-display tracking-widest uppercase">Fase 3</span>
@@ -1034,7 +1064,6 @@
                         </ul>
                     </div>
 
-                    <!-- Fase 4 -->
                     <div class="glass-card p-5 md:p-6 gsap-reveal border-t-2 border-t-i2ta-blue-deep">
                         <div class="flex justify-between items-center mb-4 md:mb-5 border-b border-white/5 pb-3">
                             <span class="text-i2ta-white text-[10px] md:text-xs font-display tracking-widest uppercase">Fase 4</span>
@@ -1053,7 +1082,56 @@
         </div>
     </section>
 
-    <!-- 8. FOOTER -->
+    <!-- 8. REPOSITÓRIOS GITHUB -->
+    <section id="github" class="py-16 md:py-24 relative overflow-hidden bg-[#0A0F1C] border-t border-white/5">
+        <div class="glow-blob w-[30rem] h-[30rem] bg-i2ta-cyan/10 top-0 left-0 transform -translate-x-1/3"></div>
+        <div class="bg-grid opacity-20"></div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+            <div class="mb-12 md:mb-16 text-center gsap-reveal">
+                <span class="text-i2ta-cyan tracking-[0.2em] text-xs md:text-sm uppercase font-bold mb-3 block">Version Control & Source</span>
+                <h2 class="font-display text-3xl md:text-5xl font-bold text-i2ta-white mb-4 tracking-tight">Acesse Seu GitHub</h2>
+                <p class="text-i2ta-neutral-gray max-w-2xl mx-auto text-sm md:text-base">Todo o código-fonte, componentes visuais e arquitetura front-end do ecossistema i2TA estão versionados. Explore os repositórios oficiais abaixo.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
+                <!-- Repo 1: Manual de Marca -->
+                <div class="glass-card p-8 md:p-10 gsap-reveal border-t-i2ta-purple/50 flex flex-col h-full group hover:border-i2ta-purple/50 transition-colors">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-14 h-14 rounded-xl bg-i2ta-purple/10 flex items-center justify-center border border-i2ta-purple/20 group-hover:bg-i2ta-purple/20 transition-colors">
+                            <i class="ph ph-swatches text-3xl text-i2ta-purple"></i>
+                        </div>
+                        <i class="ph ph-github-logo text-4xl text-gray-600 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="font-display text-xl md:text-2xl font-bold text-i2ta-white mb-3">Manual de Marca</h3>
+                    <p class="text-i2ta-neutral-gray text-sm mb-8 leading-relaxed flex-1">
+                        Repositório contendo a estrutura base, o Design System completo, a biblioteca de cores, tipografia e todos os assets vetoriais (SVG) do Brandbook Oficial do i2TA.
+                    </p>
+                    <a href="https://github.com/Opresida/2ita-manualdemarca.git" target="_blank" rel="noopener noreferrer" class="btn-secondary w-full justify-center group-hover:bg-i2ta-purple/20 group-hover:text-white group-hover:border-i2ta-purple/50">
+                        <i class="ph-bold ph-git-branch text-lg"></i> Código-Fonte do Brandbook
+                    </a>
+                </div>
+
+                <!-- Repo 2: Projeto do Site -->
+                <div class="glass-card p-8 md:p-10 gsap-reveal border-t-i2ta-cyan/50 flex flex-col h-full group hover:border-i2ta-cyan/50 transition-colors">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-14 h-14 rounded-xl bg-i2ta-cyan/10 flex items-center justify-center border border-i2ta-cyan/20 group-hover:bg-i2ta-cyan/20 transition-colors">
+                            <i class="ph ph-browser text-3xl text-i2ta-cyan"></i>
+                        </div>
+                        <i class="ph ph-github-logo text-4xl text-gray-600 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="font-display text-xl md:text-2xl font-bold text-i2ta-white mb-3">Projeto do Site (Principal)</h3>
+                    <p class="text-i2ta-neutral-gray text-sm mb-8 leading-relaxed flex-1">
+                        Código-fonte da landing page corporativa do instituto. Inclui a arquitetura front-end oficial, componentes interativos, formulários e integração de sistema.
+                    </p>
+                    <a href="https://github.com/Opresida/i2TA.git" target="_blank" rel="noopener noreferrer" class="btn-primary w-full justify-center">
+                        <i class="ph-bold ph-git-branch text-lg"></i> Código-Fonte do Site Oficial
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer class="bg-i2ta-dark border-t border-white/10 pt-12 md:pt-16 pb-8 relative overflow-hidden">
         <div class="glow-blob w-72 h-72 md:w-96 md:h-96 bg-i2ta-cyan/10 bottom-0 left-0"></div>
         <div class="bg-grid opacity-10"></div>
@@ -1061,8 +1139,7 @@
         <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
             <div class="grid md:grid-cols-4 gap-8 md:gap-12 mb-10 md:mb-12">
                 <div class="col-span-1 md:col-span-2">
-                    <!-- Logo Footer -->
-                    <img src="https://i.imgur.com/2zvS5KN.png" alt="i2TA Logo" class="h-12 md:h-16 mb-6 drop-shadow-[0_0_10px_rgba(123,63,228,0.5)] object-contain">
+                    <img src="https://raw.githubusercontent.com/Opresida/2ita-manualdemarca/refs/heads/main/logo.svg" alt="i2TA Logo" class="h-12 md:h-16 mb-6 drop-shadow-[0_0_10px_rgba(123,63,228,0.5)] object-contain">
 
                     <p class="text-gray-400 text-xs md:text-sm max-w-sm mb-6 leading-relaxed">
                         Instituto de Inteligência e Tecnologia Aplicada da Amazônia. Algoritmos, dados e conectividade impulsionando a indústria global.
@@ -1110,11 +1187,18 @@
         </div>
     </footer>
 
-    <!-- GSAP for Animations -->
+    <!-- WhatsApp Flutuante (Tech Style) -->
+    <a href="https://wa.me/5516982166580" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z- flex items-center justify-center w-14 h-14 bg-i2ta-support-success text-i2ta-dark rounded-full shadow-[0_0_20px_rgba(0,255,156,0.3)] hover:shadow-[0_0_30px_rgba(0,255,156,0.6)] hover:scale-110 transition-all duration-300 group">
+        <i class="ph-fill ph-whatsapp-logo text-3xl"></i>
+        <!-- Tooltip -->
+        <span class="absolute right-16 bg-i2ta-darker border border-i2ta-support-success/30 text-i2ta-support-success text-[10px] md:text-xs px-3 py-1.5 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none font-mono uppercase tracking-widest shadow-[0_0_10px_rgba(0,255,156,0.1)]">
+            Mazari Suporte
+        </span>
+    </a>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-    <!-- Custom JavaScript -->
     <script>
         document.addEventListener("DOMContentLoaded", (event) => {
             
@@ -1135,7 +1219,6 @@
                 }
             });
 
-            // Close menu when clicking a link (mobile)
             mobileLinks.forEach(link => {
                 link.addEventListener('click', () => {
                     mobileMenu.classList.add('hidden');
@@ -1147,7 +1230,6 @@
             // --- ScrollTrigger Setup ---
             gsap.registerPlugin(ScrollTrigger);
 
-            // Navbar background change on scroll
             const navbar = document.getElementById('navbar');
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) {
@@ -1159,7 +1241,6 @@
                 }
             });
 
-            // Hero Animations (Load)
             gsap.from(".gsap-hero", {
                 y: 50,
                 opacity: 0,
@@ -1169,19 +1250,12 @@
                 delay: 0.2
             });
 
-            // Scroll Reveal Animations
             const revealElements = document.querySelectorAll(".gsap-reveal");
             revealElements.forEach((el) => {
                 gsap.fromTo(el, 
-                    { 
-                        autoAlpha: 0, 
-                        y: 40 
-                    },
+                    { autoAlpha: 0, y: 40 },
                     {
-                        duration: 1, 
-                        autoAlpha: 1, 
-                        y: 0, 
-                        ease: "power3.out",
+                        duration: 1, autoAlpha: 1, y: 0, ease: "power3.out",
                         scrollTrigger: {
                             trigger: el,
                             start: "top 85%", 
@@ -1212,7 +1286,6 @@
                     this.vx = (Math.random() - 0.5) * 0.4;
                     this.vy = (Math.random() - 0.5) * 0.4;
                     this.radius = Math.random() * 1.5 + 0.5;
-                    // Digital Cyan and Tech Purple
                     this.color = Math.random() > 0.5 ? 'rgba(0, 224, 255, 0.6)' : 'rgba(123, 63, 228, 0.6)';
                 }
 
@@ -1220,7 +1293,6 @@
                     this.x += this.vx;
                     this.y += this.vy;
 
-                    // Wrap around edges
                     if (this.x < 0) this.x = width;
                     if (this.x > width) this.x = 0;
                     if (this.y < 0) this.y = height;
@@ -1250,7 +1322,6 @@
                     particles[i].update();
                     particles[i].draw();
 
-                    // Connect close particles (Network effect)
                     for (let j = i + 1; j < particles.length; j++) {
                         const dx = particles[i].x - particles[j].x;
                         const dy = particles[i].y - particles[j].y;
